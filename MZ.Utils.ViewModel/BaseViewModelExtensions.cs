@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MZ.Utils.ViewModel
 {
@@ -41,6 +42,26 @@ namespace MZ.Utils.ViewModel
                         self.RaisePropertyChanged(prop, depth);
                 }
             }
+        }
+
+        private static readonly BindCache bindCache = new BindCache();
+
+        public static T BindCommands<T>(this T self) where T : BaseViewModel
+        {
+            var binds = bindCache.BuildCache<T>();
+            if (binds != null)
+            {
+                foreach (var pair in binds)
+                {
+                    var set = pair.Value;
+                    var func = set.bindAttr!.UsesParameter ? 
+                        new BaseViewModelCommand((o) => set.methodInfo!.Invoke(self, new object[] { o })) 
+                      : new BaseViewModelCommand(() => set.methodInfo!.Invoke(self, new object[] { }));
+                    set.propertyInfo!.SetValue(self, func, null);
+                }
+            }
+
+            return self;
         }
     }
 }

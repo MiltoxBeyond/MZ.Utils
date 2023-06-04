@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using MZ.Utils.ViewModel.Interfaces;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace MZ.Utils.ViewModel
