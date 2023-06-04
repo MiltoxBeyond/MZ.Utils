@@ -24,6 +24,7 @@
 		<PackageIcon>lavagear.jpg</PackageIcon>
 		<PackageProjectUrl>https://github.com/MiltoxBeyond/MZ.Utils/tree/main/MZ.Utils.MauiSpecific</PackageProjectUrl>
 		<Copyright>2023</Copyright>
+		<Description>Maui Specific Utilities to help remove some boilerplate code</Description>
 
 	</PropertyGroup>
 
