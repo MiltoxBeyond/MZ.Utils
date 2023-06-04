@@ -5,6 +5,25 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>MZ Utilities for MAUI, Xamarin, and WPF ViewModels</Title>
+    <Description>Base ViewModel useful in eliminating a lot of boilerplate code, including properties that depend on each other, creating commands, and simplifying triggering NotifyPropertyChanged</Description>
+    <Copyright>2023</Copyright>
+    <PackageIcon>lavagear.jpg</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\lavagear.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

@@ -1,10 +1,8 @@
 # ![logo](https://raw.githubusercontent.com/MiltoxBeyond/MZ.Utils/main/lavagear.jpg) MZ.Utils.MauiSpecific
-Extended Utilities for ViewModel
-
-
+Extended Utilities for ViewModels in .NET MAUI specific cases
 
 ## Purpose
-This library was created to eliminate some of the boilerplating that is needed to have a useful viewmodel in Xamarin (or WPF). 
+This library was created to eliminate some of the boilerplating that is needed to have a useful viewmodel in MAUI. 
 
 ## Basic Usage
 
