@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MZ.Utils.ViewModel.Interfaces
 {
-    internal interface IInitializeAsync
+    public interface IInitializeAsync
     {
         Task InitializeAsync();
     }

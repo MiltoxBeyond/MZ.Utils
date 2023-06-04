@@ -1,29 +1,39 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-	<TargetFrameworks>net7.0;net6.0;net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>MZ Utilities for MAUI, Xamarin, and WPF ViewModels</Title>
-    <Description>Base ViewModel useful in eliminating a lot of boilerplate code, including properties that depend on each other, creating commands, and simplifying triggering NotifyPropertyChanged</Description>
-    <Copyright>2023</Copyright>
-    <PackageIcon>lavagear.jpg</PackageIcon>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net7.0;net6.0;net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>MZ Utilities for MAUI, Xamarin, and WPF ViewModels</Title>
+		<Description>Base ViewModel useful in eliminating a lot of boilerplate code, including properties that depend on each other, creating commands, and simplifying triggering NotifyPropertyChanged</Description>
+		<Copyright>2023</Copyright>
+		<PackageIcon>lavagear.jpg</PackageIcon>
+		<PackageReadmeFile></PackageReadmeFile>
+		<RepositoryUrl>https://github.com/MiltoxBeyond/MZ.Utils/tree/main/MZ.Utils.ViewModel</RepositoryUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<VersionSuffix>1.0.$([System.DateTime]::UtcNow.ToString(yyMM)).$([System.DateTime]::UtcNow.ToString(hmm))</VersionSuffix>
+		<AssemblyVersion Condition=" '$(VersionSuffix)' == '' ">1.0.0.1</AssemblyVersion>
+		<AssemblyVersion Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</AssemblyVersion>
+		<Version Condition="'$(VersionSuffix)' == ''">1.0.0.1</Version>
+		<Version Condition="'$(VersionSuffix)' != ''">$(VersionSuffix)</Version>
+		<!--Deterministic tells the compiler to use the same versions of the files if no changes have happened resulting in faster builds-->
+		<Deterministic>false</Deterministic>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Include="..\lavagear.jpg">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\lavagear.jpg">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Update=".\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
 
 </Project>

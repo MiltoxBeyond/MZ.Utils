@@ -3,20 +3,23 @@ using Microsoft.Maui.Controls;
 using System.Reflection;
 using System.Text.Json;
 using System.Text;
+using MZ.Utils.ViewModel;
+using MZ.Utils.ViewModel.Interfaces;
+using MZ.Utils.MauiSpecific.Attributes;
+using MZ.Utils.MauiSpecific.Interfaces;
 
 namespace MZ.Utils.MauiSpecific
 {
-    public class ShellAwareViewModel : BaseVM.BaseViewModel,
-                                       BaseVM.Interfaces.IInitializeAsync,
-                                       BaseVM.Interfaces.INavigationAware,
-                                       BaseVM.Interfaces.IResetOnNavigation,
+    public class ShellAwareViewModel : BaseViewModel,
+                                       IInitializeAsync,
+                                       INavigationAware,
                                        IQueryAttributable
     {
         private static Dictionary<Type, Dictionary<string, ShellAwareReference>?> _TypeLookup = new Dictionary<Type, Dictionary<string, ShellAwareReference>?>();
         private class ShellAwareReference
         {
-            public PropertyInfo targetInfo { get; set; }
-            public MethodInfo conversionMethod { get; set; }
+            public PropertyInfo? targetInfo { get; set; }
+            public MethodInfo? conversionMethod { get; set; }
         }
 
         public bool HasQuery { get => GetValue<bool>(); set => SetValue(value); }
@@ -48,16 +51,16 @@ namespace MZ.Utils.MauiSpecific
                             //Shorten following lines
                             var current = lookup[pair.Key];
 
-                            var converted = current.conversionMethod.Invoke(null, new object[] { value });
+                            var converted = current.conversionMethod!.Invoke(null, new object[] { value });
                             //Set target value with deserialized value. Try not to make it too complex.
-                            current.targetInfo.SetValue(this, converted);
+                            current.targetInfo!.SetValue(this, converted);
                         }
                     }
                 }
             }
         }
 
-        public async Task<bool> GoToAsync(string path, IDictionary<string, object?> customData = null)
+        public async Task<bool> GoToAsync(string path, IDictionary<string, object?>? customData = null)
         {
             var finalPath = string.Empty;
             try
@@ -193,6 +196,5 @@ namespace MZ.Utils.MauiSpecific
         public virtual Task InitializeAsync() => Task.CompletedTask;
         public virtual void OnNavigatedFrom() { }
         public virtual void OnNavigatedTo() { }
-        public virtual void Reset() { }
     }
 }
