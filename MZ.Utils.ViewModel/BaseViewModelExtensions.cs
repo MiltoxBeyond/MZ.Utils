@@ -48,7 +48,7 @@ namespace MZ.Utils.ViewModel
 
         public static T BindCommands<T>(this T self) where T : BaseViewModel
         {
-            var binds = bindCache.BuildCache<T>();
+            var binds = bindCache.BuildCache(self.GetType());
             if (binds != null)
             {
                 foreach (var pair in binds)

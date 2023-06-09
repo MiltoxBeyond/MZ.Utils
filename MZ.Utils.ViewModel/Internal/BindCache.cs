@@ -20,9 +20,8 @@ namespace MZ.Utils.ViewModel.Internal
         }
 
         private static readonly Type ICommandType = typeof(ICommand);
-        public Dictionary<string, BindSet> BuildCache<T>()
+        public Dictionary<string, BindSet> BuildCache(Type type)
         {
-            var type = typeof(T);
             if (ContainsKey(type))
             {
                 return this[type];

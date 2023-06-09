@@ -5,8 +5,8 @@ namespace MZ.Utils.MauiSpecific;
 public class ShellAwarePage<T> : ContentPage where T : BaseViewModel
 {
 	protected T? ViewModel => BindingContext as T;
-	public ShellAwarePage(T viewModel)
+	public ShellAwarePage()
 	{
-		BindingContext = viewModel;
+		this.SetViewModel<T>();
 	}
 }

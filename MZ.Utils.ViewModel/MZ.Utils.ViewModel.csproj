@@ -14,11 +14,12 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<IncludeSymbols>True</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<VersionSuffix>1.0.$([System.DateTime]::UtcNow.ToString(yyMM)).$([System.DateTime]::UtcNow.ToString(hmm))</VersionSuffix>
+		<VersionSuffix>1.0.$([System.DateTime]::UtcNow.ToString(yyMM)).$([System.DateTime]::UtcNow.ToString(dhmm))</VersionSuffix>
 		<AssemblyVersion Condition=" '$(VersionSuffix)' == '' ">1.0.0.1</AssemblyVersion>
 		<AssemblyVersion Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</AssemblyVersion>
 		<Version Condition="'$(VersionSuffix)' == ''">1.0.0.1</Version>
 		<Version Condition="'$(VersionSuffix)' != ''">$(VersionSuffix)</Version>
+		<PackageVersion>$([System.DateTime]::Now.ToString("1.yyMM.dd.HHmmss"))</PackageVersion>
 		<!--Deterministic tells the compiler to use the same versions of the files if no changes have happened resulting in faster builds-->
 		<Deterministic>false</Deterministic>
 	</PropertyGroup>

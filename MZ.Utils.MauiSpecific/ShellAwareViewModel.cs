@@ -24,6 +24,11 @@ namespace MZ.Utils.MauiSpecific
 
         public bool HasQuery { get => GetValue<bool>(); set => SetValue(value); }
 
+        public static T? GetService<T>()
+        {
+            return PageExtensions.GetService<T>();
+        }
+
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
             HasQuery = query.Count > 0;
@@ -191,7 +196,8 @@ namespace MZ.Utils.MauiSpecific
 
         public ShellAwareViewModel()
         {
-
+            this.BindCommands();
+            this.BindRoutes();
         }
         public virtual Task InitializeAsync() => Task.CompletedTask;
         public virtual void OnNavigatedFrom() { }

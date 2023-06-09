@@ -20,11 +20,16 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<VersionSuffix>1.0.$([System.DateTime]::UtcNow.ToString(yyMM)).$([System.DateTime]::UtcNow.ToString(hmm))</VersionSuffix>
 		<Version>$(VersionSuffix)</Version>
+		<PackageVersion>$([System.DateTime]::Now.ToString("1.yyMM.dd.HHmmss"))</PackageVersion>
 		<Title>MZ Utilities for .NET MAUI</Title>
 		<PackageIcon>lavagear.jpg</PackageIcon>
 		<PackageProjectUrl>https://github.com/MiltoxBeyond/MZ.Utils/tree/main/MZ.Utils.MauiSpecific</PackageProjectUrl>
 		<Copyright>2023</Copyright>
 		<Description>Maui Specific Utilities to help remove some boilerplate code</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
 	</PropertyGroup>
 
@@ -36,7 +41,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="MZ.Utils.ViewModel" Version="1.0.2306.720" />
+	  <PackageReference Include="MZ.Utils.ViewModel" Version="1.2306.7.230621" />
 	</ItemGroup>
 
 </Project>
